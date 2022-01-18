@@ -16,5 +16,5 @@ def download_assets():
         print("Game directory detected...")
     with open(font_path, 'wb') as file:
         print("Downloading font...")
-        r = requests.get("https://raw.github.com/xXCoolinXx/2048/master/src/Assets/Fonts/ClearSans-Bold.ttf")
+        r = requests.get("https://raw.github.com/xXCoolinXx/2048/master/Assets/Fonts/ClearSans-Bold.ttf")
         file.write(r.content)
