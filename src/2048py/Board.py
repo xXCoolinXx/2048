@@ -34,7 +34,7 @@ class Board():
     HIGHER_NUMBER_CHANCE = 0.10
 
     class Tile(pyg.sprite.Sprite):
-        font_dict = {digit : pyg.font.Font("Fonts/ClearSans-Bold.ttf", int(2 * DIMENSION / (digit + 1))) for digit in range(3, 7 + 1)}
+        font_dict = {digit : pyg.font.Font("../Assets/Fonts/ClearSans-Bold.ttf", int(2 * DIMENSION / (digit + 1))) for digit in range(3, 7 + 1)}
         SPEED = 10
 
         def __init__(self, location, number):
@@ -191,8 +191,8 @@ class Board():
             return True
 
     def try_read_file(self):
-        if os.path.isfile("Saves/board.json") and os.path.getsize("Saves/board.json") != 0: 
-            with open("Saves/board.json", 'r') as f:
+        if os.path.isfile("../Saves/board.json") and os.path.getsize("../Saves/board.json") != 0: 
+            with open("../Saves/board.json", 'r') as f:
                 tile_list = jsonpickle.decode(f.read())
                 for tile in tile_list:
                     tile.add(self.group)
@@ -204,7 +204,7 @@ class Board():
             self.start()
 
     def write_file(self):
-        with open("Saves/board.json", 'w') as f:
+        with open("../Saves/board.json", 'w') as f:
             tile_list = []
             for tile in self.group:
                 tile.kill() #Makes sure that the group itself is not saved
