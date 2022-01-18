@@ -1,5 +1,5 @@
 import unittest
-from Board import *
+from py2048.Board import *
 from copy import deepcopy
 import itertools as it
 from measures import *

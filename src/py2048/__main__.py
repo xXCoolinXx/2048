@@ -1,13 +1,24 @@
+import sys
+
+from py2048.downloader import download_assets
+sys.path.append("../..")
+
 import pygame as pyg
 from pygame._sdl2.video import Window
-import move_window as mw
-from measures import *
-from Board import *
+import py2048.move_window as mw
+from py2048.measures import *
+from py2048.Board import *
+from py2048.downloader import *
 import itertools as it
 
 def main():
     pyg.init()
     Direction.init()
+
+    if not os.path.exists(font_path):
+        download_assets()
+
+    Board.Tile.init()
 
     monitor = pyg.Vector2(pyg.display.Info().current_w, pyg.display.Info().current_h)
     
