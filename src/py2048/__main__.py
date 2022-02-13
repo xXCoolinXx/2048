@@ -5,7 +5,7 @@ sys.path.append("../..")
 
 import pygame as pyg
 from pygame._sdl2.video import Window
-import py2048.move_window as mw
+#import py2048.move_window as mw
 from py2048.measures import *
 from py2048.Board import *
 from py2048.downloader import *
@@ -22,7 +22,7 @@ def main():
 
     monitor = pyg.Vector2(pyg.display.Info().current_w, pyg.display.Info().current_h)
     
-    screen = pyg.display.set_mode(WINDOW_SIZE, pyg.NOFRAME)
+    screen = pyg.display.set_mode(WINDOW_SIZE)
     
     window = Window.from_display_module()
     window.position = ((monitor.x - WINDOW_SIZE[0]) / 2, (monitor.y - WINDOW_SIZE[1]) / 2)
@@ -34,8 +34,9 @@ def main():
     game_clock = pyg.time.Clock()
 
     pressed = False
+    running = True
     start_pos = (0, 0)
-    while True:
+    while running:
         game_clock.tick(200)
 
         for event in pyg.event.get():
@@ -47,7 +48,7 @@ def main():
                 if pyg.key.get_pressed()[pyg.K_r]:
                     board_instance.reset(wait = False)
                 board_instance.on_keydown()
-            mw.check_event(window, event)
+            #mw.check_event(window, event)
             
         if pyg.key.get_pressed()[pyg.K_ESCAPE]:
             break
